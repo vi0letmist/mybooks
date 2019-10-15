@@ -35,19 +35,25 @@
               </a>
             </li> -->
             <li class="@if ($activePage == 'users') active @endif">
-              <a href="{{ route('user.index') }}">
-                <i class="now-ui-icons design_bullet-list-67"></i>
-                <p> {{ __("User Management") }} </p>
-              </a>
-            </li>
-          </ul>
+                <a href="{{ route('user.index') }}">
+                  <i class="now-ui-icons design_bullet-list-67"></i>
+                  <p> {{ __("User Management") }} </p>
+                </a>
+              </li>
+            </ul>
         <!-- </div> -->
-        <li class="@if ($activePage == 'books') active @endif">
-        <a href="{{ route('page.index','books') }}">
-          <i class="now-ui-icons education_atom"></i>
-          <p>{{ __('Books') }}</p>
-        </a>
-      </li>
+        <li class="@if ($activePage == 'rak') active @endif">
+          <a href="{{ route('rak.index') }}">
+            <i class="now-ui-icons education_atom"></i>
+            <p>{{ __('Rak Management') }}</p>
+          </a>
+        </li>
+        <li class="@if ($activePage == 'peminjaman') active @endif">
+          <a href="{{ route('peminjaman.index') }}">
+            <i class="now-ui-icons design_bullet-list-67"></i>
+            <p>{{ __('Management Peminjaman') }}</p>
+          </a>
+        </li>
       <!-- <li class="@if ($activePage == 'icons') active @endif">
         <a href="{{ route('page.index','icons') }}">
           <i class="now-ui-icons education_atom"></i>
