@@ -3,11 +3,8 @@
     Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
 -->
   <div class="logo">
-    <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-      {{ __('CT') }}
-    </a>
-    <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-      {{ __('Creative Tim') }}
+    <a href="#" class="logo-normal">
+      <img src="{{ asset('assets/img/horizontal-mybook.png') }}" alt="">
     </a>
   </div>
   <div class="sidebar-wrapper" id="sidebar-wrapper">
@@ -34,13 +31,13 @@
                 <p> {{ __("User Profile") }} </p>
               </a>
             </li> -->
-            <li class="@if ($activePage == 'users') active @endif">
+            {{-- <li class="@if ($activePage == 'users') active @endif">
                 <a href="{{ route('user.index') }}">
                   <i class="now-ui-icons design_bullet-list-67"></i>
                   <p> {{ __("User Management") }} </p>
                 </a>
               </li>
-            </ul>
+            </ul> --}}
         <!-- </div> -->
         <li class="@if ($activePage == 'rak') active @endif">
           <a href="{{ route('rak.index') }}">
