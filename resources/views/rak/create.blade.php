@@ -51,7 +51,7 @@
                                     <label class="form-control-label" for="input-deskripsi">{{ __('Deskripsi') }}</label>
                                     <input type="text" name="deskripsi" id="input-deskripsi" class="form-control{{ $errors->has('deskripsi') ? ' is-invalid' : '' }}" placeholder="{{ __('Deskripsi') }}" value="{{ old('deskripsi') }}" required>
 
-                                    @include('alerts.feedback', ['field' => 'author'])
+                                    @include('alerts.feedback', ['field' => 'deskripsi'])
                                 </div>
 
                                 <div class="text-center">

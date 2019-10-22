@@ -2,9 +2,25 @@
     'namePage' => 'Login page',
     'class' => 'login-page sidebar-mini ',
     'activePage' => 'login',
-    'backgroundImage' => asset('assets') . "/img/bg14.jpg",
+    'backgroundImage' => asset('assets') . "/img/b.jpg",
 ])
-
+<img src="/assets/img/tengah1.svg" id="tengah" alt="tengah">
+<img src="/assets/img/kiri.svg" id="left" alt="left">
+<img src="/assets/img/right.svg" id="right" alt="right">
+<img src="/assets/img/fallstar.svg" id="fall" alt="fall">
+<img src="/assets/img/spark.svg" id="spark1" alt="spark">
+<img src="/assets/img/spark.svg" id="spark2" alt="spark">
+<img src="/assets/img/spark.svg" id="spark3" alt="spark">
+<img src="/assets/img/spark.svg" id="spark4" alt="spark">
+<img src="/assets/img/spark.svg" id="spark5" alt="spark">
+<img src="/assets/img/spark.svg" id="spark6" alt="spark">
+<img src="/assets/img/spark.svg" id="spark7" alt="spark">
+<img src="/assets/img/spark.svg" id="spark8" alt="spark">
+<img src="/assets/img/spark.svg" id="spark9" alt="spark">
+<img src="/assets/img/spark.svg" id="spark10" alt="spark">
+<img src="/assets/img/spark.svg" id="spark11" alt="spark">
+<img src="/assets/img/spark.svg" id="spark12" alt="spark">
+<img src="/assets/img/spark.svg" id="spark13" alt="spark">
 @section('content')
     <div class="content">
         <div class="container">

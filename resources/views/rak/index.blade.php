@@ -51,7 +51,7 @@
     </div>
       <div class="col-md-3">
         <div class="card">
-          <div class="card-header" style="text-align:right;margin-bottom:-2.5em;">
+          <div class="card-header" style="text-align:right;margin-top:-1em;margin-bottom:-1em;">
             <!-- <h4 class="card-title">Notifications Style</h4> -->
             <div class="dropdown">
               <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
@@ -73,7 +73,7 @@
       </div>
       <div class="col-md-3">
         <div class="card">
-        <div class="card-header" style="text-align:right;margin-bottom:-2.5em;">
+        <div class="card-header" style="text-align:right;margin-top:-1em;margin-bottom:-1em;">
             <!-- <h4 class="card-title">Notifications Style</h4> -->
             <div class="dropdown">
               <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
@@ -96,7 +96,7 @@
 
       <div class="col-md-3">
         <div class="card">
-          <div class="card-header" style="text-align:right;margin-bottom:-2.5em;">
+          <div class="card-header" style="text-align:right;margin-top:-1em;margin-bottom:-1em;">
             <!-- <h4 class="card-title">Notifications Style</h4> -->
             <div class="dropdown">
               <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
@@ -119,7 +119,7 @@
       </div>
       <div class="col-md-3">
         <div class="card">
-        <div class="card-header" style="text-align:right;margin-bottom:-2.5em;">
+        <div class="card-header" style="text-align:right;margin-top:-1em;margin-bottom:-1em;">
             <!-- <h4 class="card-title">Notifications Style</h4> -->
             <div class="dropdown">
               <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
