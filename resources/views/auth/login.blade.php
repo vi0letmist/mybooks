@@ -45,9 +45,9 @@
             <form role="form" method="POST" action="{{ route('login') }}">
                 @csrf
             <div class="card card-login card-plain">
-                <div class="card-header ">
+                <div class="card-header">
                 <div class="logo-container">
-                    <img src="{{ asset('assets/img/now-logo.png') }}" alt="">
+                    <img src="{{ asset('assets/img/now-logo.png') }}" alt="" style="width:100px;max-width:150%;margin-left:-1em;">
                 </div>
                 </div>
                 <div class="card-body ">

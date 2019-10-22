@@ -34,7 +34,7 @@
                   <th class="disabled-sorting text-right">{{ __('Actions') }}</th>
                 </tr>
               </thead>
-              <tfoot>
+              {{-- <tfoot>
                 <tr>
                   <th>{{ __('Profile') }}</th>
                   <th>{{ __('Name') }}</th>
@@ -42,7 +42,7 @@
                   <th>{{ __('Creation date') }}</th>
                   <th class="disabled-sorting text-right">{{ __('Actions') }}</th>
                 </tr>
-              </tfoot>
+              </tfoot> --}}
               <tbody>
                 @foreach($users as $user)
                   <tr>
