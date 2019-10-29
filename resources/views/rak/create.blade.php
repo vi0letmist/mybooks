@@ -54,12 +54,14 @@
                                     @include('alerts.feedback', ['field' => 'deskripsi'])
                                 </div>
                                 <div class="form-group{{ $errors->has('gambar') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-gambar">{{ __('Gambar') }}</label>
-                                    <input type="file" name="deskripsi" id="input-gambar" class="custom-file-control{{ $errors->has('gambar') ? ' is-invalid' : '' }}" placeholder="{{ __('Gambar') }}" value="{{ old('gambar') }}" required>
-
+                                    <label class="form-control-label" for="input-gambar">{{ __('Gambar') }}</label><br/>
+                                    <div class="btn btn-primary btn-sm float-left">
+                                    <span>choose file</span>
+                                    <input type="file" name="gambar" id="input-gambar" class="custom-file-control{{ $errors->has('gambar') ? ' is-invalid' : '' }}" placeholder="{{ __('Gambar') }}" value="{{ old('gambar') }}" required>
+                                    </div>
                                     @include('alerts.feedback', ['field' => 'gambar'])
                                 </div>
-
+                                
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success mt-4">{{ __('Save') }}</button>
                                 </div>
