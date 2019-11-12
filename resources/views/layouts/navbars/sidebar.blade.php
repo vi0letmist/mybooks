@@ -31,21 +31,13 @@
                 <p> {{ __("User Profile") }} </p>
               </a>
             </li> -->
-<<<<<<< HEAD
-            <!-- <li class="@if ($activePage == 'users') active @endif">
-=======
             {{-- <li class="@if ($activePage == 'users') active @endif">
->>>>>>> e6f17428b4145172b4d24941c099502f8faeb350
                 <a href="{{ route('user.index') }}">
                   <i class="now-ui-icons design_bullet-list-67"></i>
                   <p> {{ __("User Management") }} </p>
                 </a>
               </li>
-<<<<<<< HEAD
-            </ul> -->
-=======
             </ul> --}}
->>>>>>> e6f17428b4145172b4d24941c099502f8faeb350
         <!-- </div> -->
         <li class="@if ($activePage == 'rak') active @endif">
           <a href="{{ route('rak.index') }}">

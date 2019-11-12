@@ -14,11 +14,7 @@
                   <div class="header-body text-center mb-7">
                       <div class="row justify-content-center">
                           <div class="col-lg-12 col-md-9">
-<<<<<<< HEAD
                               <h3 class="text-white">{{ __('Welcome to MyBooks App') }}</h3>
-=======
-                              <h3 class="text-white">{{ __('MY BOOKS') }}</h3>
->>>>>>> e6f17428b4145172b4d24941c099502f8faeb350
                               <p class="text-lead text-light mt-3 mb-0">
                                   @include('alerts.migrations_check')
                               </p>
