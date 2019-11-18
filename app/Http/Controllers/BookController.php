@@ -7,8 +7,9 @@ use App\Buku;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
-class RakController extends Controller
+class BookController extends Controller
 {
     /**
      * Display a listing of the users
@@ -19,7 +20,6 @@ class RakController extends Controller
     public function index()
     {
         $rak = Rak::where('user_id', Auth::user()->id)->first();
-        // $buku =
         $data = [
             'rak' => Rak::where('user_id', Auth::user()->id)->get(),
             'active' => $rak,
@@ -49,7 +49,10 @@ class RakController extends Controller
      */
     public function create()
     {
-        return view('rak.createRak');
+        $data = [
+            'rak' => Rak::where('user_id', Auth::user()->id)->get()
+        ];
+        return view('rak.create', $data);
     }
 
     /**
@@ -61,20 +64,25 @@ class RakController extends Controller
      */
     public function store(Request $request)
     {
-        $rak = new Rak();
-        $rak->nama = $request->name;
-        $rak->user_id = Auth::user()->id;
-        // $rak->judul = $request->title;
-        // $rak->penulis = $request->author;
-        // $rak->deskripsi = $request->deskripsi;
-        // $rak->tahun_terbit = $request->tahunTerbit;
-        // $rak->penerbit = $request->penerbit;
-        // $rak->sampul = $request->sampul;
-        // $rak->rak_id = $request->rak;
+        $buku = new Buku();
+        $buku->judul = $request->title;
+        $buku->penulis = $request->author;
+        $buku->deskripsi = $request->deskripsi;
+        if ($request->gambar != null) {
+            $cover = Str::random(30) . Auth::user()->id . '.' . $request->file('gambar')->getClientOriginalExtension();
+            $buku->sampul = $cover;
+        }
+        $buku->penerbit = $request->penerbit;
+        $buku->tahun_terbit = $request->tahunTerbit;
+        $buku->rak_id = $request->rak;
+        $buku->save();
 
-        $rak->save();
+        if ($request->gambar != null) {
+            $target = base_path('storage\image');
+            $request->file('gambar')->move($target, $cover);
+        }
 
-        return redirect()->route('rak.index')->withStatus(__('Shelf successfully created.'));
+        return redirect()->route('rak.index')->withStatus(__('Books successfully added.'));
     }
 
     /**

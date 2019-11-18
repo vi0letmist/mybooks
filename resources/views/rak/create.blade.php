@@ -15,7 +15,7 @@
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">{{ __('Rak Management') }}</h3>
+                                <h3 class="mb-0">{{ __('Book Management') }}</h3>
                             </div>
                             <div class="col-4 text-right">
                                 <a href="{{ route('rak.index') }}" class="btn btn-primary btn-round">{{ __('Back to list') }}</a>
@@ -23,10 +23,8 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{ route('rak.store') }}" autocomplete="off"
-                            enctype="multipart/form-data">
+                        <form method="post" action="{{ route('book.store') }}" enctype="multipart/form-data">
                             @csrf
-
                             <h6 class="heading-small text-muted mb-4">{{ __('Book information') }}</h6>
                             <div class="pl-lg-4">
                                 <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
@@ -53,15 +51,28 @@
 
                                     @include('alerts.feedback', ['field' => 'deskripsi'])
                                 </div>
-                                <div class="form-group{{ $errors->has('gambar') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-gambar">{{ __('Gambar') }}</label><br/>
-                                    <div class="btn btn-primary btn-sm float-left">
-                                    <span>choose file</span>
-                                    <input type="file" name="gambar" id="input-gambar" class="custom-file-control{{ $errors->has('gambar') ? ' is-invalid' : '' }}" placeholder="{{ __('Gambar') }}" value="{{ old('gambar') }}" required>
-                                    </div>
-                                    @include('alerts.feedback', ['field' => 'gambar'])
+
+                                <div class="form-group{{ $errors->has('penerbit') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="input-penerbit">{{ __('Penerbit') }}</label>
+                                    <input type="text" name="deskripsi" id="input-penerbit" class="form-control{{ $errors->has('penerbit') ? ' is-invalid' : '' }}" placeholder="{{ __('Penerbit') }}" value="{{ old('penerbit') }}" required>
+
+                                    @include('alerts.feedback', ['field' => 'penerbit'])
                                 </div>
-                                
+
+                                <div class="form-group{{ $errors->has('rak') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="input-penerbit">{{ __('Rak') }}</label><br>
+                                        <select name="rak" class="form-control{{ $errors->has('rak') ? ' has-danger' : '' }}">
+                                        @foreach ($rak as $x)
+                                            <option class="form-control" value="{{$x->id}}">{{$x->nama}}</option>
+                                        @endforeach
+                                        </select>
+                                        @include('alerts.feedback', ['field' => 'rak'])
+                                    </input>
+                                </div>
+
+                                <label>Book cover</label><br>
+                                <input type="file" class="btn btn-primary btn-sm" name="gambar" value="{{old('gambar')}}">
+
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success mt-4">{{ __('Save') }}</button>
                                 </div>
