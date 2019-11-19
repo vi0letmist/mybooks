@@ -29,62 +29,36 @@
                 <tr>
                   <th>No</th>
                   <th>Nama Peminjam</th>
-                  <th>tglPinjam</th>
-                  <th>tglKembali</th>
+                  <th>Tanggal Pinjam</th>
+                  <th>Tanggal Kembali</th>
                   <th>Nama Buku</th>
-                  <th>no Telefon</th>
+                  <th>No Telepon</th>
                   <th class="disabled-sorting text-right">Actions</th>
                 </tr>
               </thead>
-            <!-- <thead>
-                <tr>
-                  <th>{{ __('Profile') }}</th>
-                  <th>{{ __('Name') }}</th>
-                  <th>{{ __('Email') }}</th>
-                  <th>{{ __('Creation date') }}</th>
-                  <th class="disabled-sorting text-right">{{ __('Actions') }}</th>
-                </tr>
-              </thead>
-              <tfoot>
-                <tr>
-                  <th>{{ __('Profile') }}</th>
-                  <th>{{ __('Name') }}</th>
-                  <th>{{ __('Email') }}</th>
-                  <th>{{ __('Creation date') }}</th>
-                  <th class="disabled-sorting text-right">{{ __('Actions') }}</th>
-                </tr>
-              </tfoot> -->
               <tbody>
-                <!-- @foreach($errors as $user)
-                  <tr>
-                    <td>
-                      <span class="avatar avatar-sm rounded-circle">
-                        <img src="{{asset('assets')}}/img/default-avatar.png" alt="" style="max-width: 80px; border-radiu: 100px">
-                      </span>
-                    </td>
-                    <td>{{$user->name}}</td>
-                    <td>{{$user->email}}</td>
-                    <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
-                      <td class="text-right">
-                      @if($user->id!=auth()->user()->id)
-                        <a type="button" href="{{route("user.edit",$user)}}" rel="tooltip" class="btn btn-success btn-icon btn-sm " data-original-title="" title="">
-                          <i class="now-ui-icons ui-2_settings-90"></i>
-                        </a>
-                      <form action="{{ route('user.destroy', $user) }}" method="post" style="display:inline-block;" class ="delete-form">
-                        @csrf
-                        @method('delete')
-                        <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm delete-button" data-original-title="" title="" onclick="confirm('{{ __('Are you sure you want to delete this user?') }}') ? this.parentElement.submit() : ''">
-                          <i class="now-ui-icons ui-1_simple-remove"></i>
-                        </button>
-                      </form>
-                    @else
-                      <a type="button" href="{{ route('profile.edit') }}" rel="tooltip" class="btn btn-success btn-icon btn-sm " data-original-title="" title="">
-                        <i class="now-ui-icons ui-2_settings-90"></i>
-                      </a>
-                    @endif
-                    </td>
-                  </tr>
-                @endforeach -->
+                @foreach ($peminjaman as $p)
+                      <tr>
+                        <td>{{$i++}}</td>
+                        <td>{{$p->Peminjam->nama}}</td>
+                        <td>{{$p->tgl_pinjam}}</td>
+                        <td>{{$p->tgl_kembali}}</td>
+                        <td>{{$p->Buku->judul}}</td>
+                        <td>{{$p->Peminjam->no_hp}}</td>
+                        <td class="text-right">
+                              <a type="button" href="#" rel="tooltip" class="btn btn-success btn-icon btn-sm " data-original-title="" title="">
+                                <i class="now-ui-icons ui-2_settings-90"></i>
+                              </a>
+                            <form action="{{route('peminjaman.destroy', $p->id)}}" method="post" style="display:inline-block;" class ="delete-form">
+                              @csrf
+                              @method('delete')
+                              <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm delete-button" data-original-title="" title="" onclick="confirm('{{ __('Are you sure you want to delete this user?') }}') ? this.parentElement.submit() : ''">
+                                <i class="now-ui-icons ui-1_simple-remove"></i>
+                              </button>
+                            </form>
+                          </td>
+                      </tr>    
+                @endforeach  
               </tbody>
             </table>
           </div>

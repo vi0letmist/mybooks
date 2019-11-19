@@ -13,9 +13,10 @@ class PeminjamanController extends Controller
 
     public function index()
     {
+        $peminjaman = PinjamBuku::all();
+        $i = 1;
 
-
-        return view('peminjaman.index');
+        return view('peminjaman.index', compact('peminjaman', 'i'));
     }
 
 
@@ -62,9 +63,9 @@ class PeminjamanController extends Controller
     }
 
 
-    public function destroy(Peminjaman $peminjaman)
+    public function destroy($id)
     {
-        $peminjaman->delete();
+        PinjamBuku::where('id', $id)->delete();
 
         return redirect()->route('peminjaman.index')->withStatus(__('Peminjaman successfully deleted.'));
     }
