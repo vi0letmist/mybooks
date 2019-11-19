@@ -75,6 +75,7 @@ class BookController extends Controller
         $buku->penerbit = $request->penerbit;
         $buku->tahun_terbit = $request->tahunTerbit;
         $buku->rak_id = $request->rak;
+        $buku->user_id = Auth::user()->id;
         $buku->save();
 
         if ($request->gambar != null) {
