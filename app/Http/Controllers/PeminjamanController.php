@@ -2,65 +2,55 @@
 
 namespace App\Http\Controllers;
 
-use App\Peminjaman;
+use App\PinjamBuku;
+use App\Peminjam;
+use App\Buku;
 use App\Http\Requests\PeminjamanRequest;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Request;
 
 class PeminjamanController extends Controller
 {
-    /**
-     * Display a listing of the users
-     *
-     * @param  \App\Peminjaman  $model
-     * @return \Illuminate\View\View
-     */
+
     public function index()
     {
+        
+
         return view('peminjaman.index');
+
     }
 
-    /**
-     * Show the form for creating a new user
-     *
-     * @return \Illuminate\View\View
-     */
+
     public function create()
     {
-        return view('peminjaman.create');
+        $peminjam = Peminjam::all();
+        $buku = Buku::all();
+        return view('peminjaman.create', compact('peminjam', 'buku'));
     }
 
-    /**
-     * Store a newly created user in storage
-     *
-     * @param  \App\Http\Requests\PeminjamanRequest  $request
-     * @param  \App\Peminjaman  $model
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function store(PeminjamanRequest $request, Peminjaman $model)
+    public function store(Request $request)
     {
-        $model->create($request->merge(['password' => Hash::make($request->get('password'))])->all());
+        dd($request);
+        $peminjaman = new PinjamBuku;
+
+        $peminjaman->status = '1';
+        $peminjaman->tgl_pinjam = $request->tanggalPinjam;
+        $peminjaman->tgl_kembali = $request->tanggalKembali;
+        $peminjaman->buku_id = Buku::where('judul', $request->buku)->id;
+        $peminjaman->peminjam_id = Buku::where('nama', $request->nama)->id;
+
+        $peminjaman->save();
+
 
         return redirect()->route('peminjaman.index')->withStatus(__('Peminjaman successfully created.'));
     }
 
-    /**
-     * Show the form for editing the specified user
-     *
-     * @param  \App\Peminjaman  $peminjaman
-     * @return \Illuminate\View\View
-     */
     public function edit(Peminjaman $peminjaman)
     {
         return view('peminjaman.edit', compact('peminjaman'));
     }
 
-    /**
-     * Update the specified user in storage
-     *
-     * @param  \App\Http\Requests\PeminjamanRequest  $request
-     * @param  \App\Peminjaman  $user
-     * @return \Illuminate\Http\RedirectResponse
-     */
+
     public function update(PeminjamanRequest $request, Peminjaman  $peminjaman)
     {
         $hasPassword = $request->get('password');
@@ -73,12 +63,7 @@ class PeminjamanController extends Controller
         return redirect()->route('peminjaman.index')->withStatus(__('Peminjaman successfully updated.'));
     }
 
-    /**
-     * Remove the specified user from storage
-     *
-     * @param  \App\Peminjaman  $peminjaman
-     * @return \Illuminate\Http\RedirectResponse
-     */
+
     public function destroy(Peminjaman $peminjaman)
     {
         $peminjaman->delete();

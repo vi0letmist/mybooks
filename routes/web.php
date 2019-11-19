@@ -28,4 +28,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
     Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
     Route::get('{page}', ['as' => 'page.index', 'uses' => 'PageController@index']);
+    Route::get('peminjam/create', 'PeminjamController@index')->name('peminjam');
+    Route::post('peminjam/create', 'PeminjamController@store')->name('peminjam_store');
 });

@@ -13,7 +13,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-              <a class="btn btn-primary btn-round text-white pull-right" href="{{ route('peminjaman.create') }}">{{ __('Add Peminjam') }}</a>
+              <a class="btn btn-primary btn-round text-white pull-right" href="{{ route('peminjaman.create') }}">{{ __('Add Peminjaman') }}</a>
             <h4 class="card-title">{{ __('Peminjaman') }}</h4>
             <div class="col-12 mt-2">
               @include('alerts.success')
@@ -36,17 +36,6 @@
                   <th class="disabled-sorting text-right">Actions</th>
                 </tr>
               </thead>
-              <tfoot>
-                <tr>
-                  <th>No</th>
-                  <th>Nama Peminjam</th>
-                  <th>tglPinjam</th>
-                  <th>tglKembali</th>
-                  <th>Nama Buku</th>
-                  <th>no Telefon</th>
-                  <th class="disabled-sorting text-right">Actions</th>
-                </tr>
-              </tfoot>  
             <!-- <thead>
                 <tr>
                   <th>{{ __('Profile') }}</th>
