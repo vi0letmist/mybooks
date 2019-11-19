@@ -18,13 +18,12 @@ class RakController extends Controller
      */
     public function index()
     {
-        $rak = Rak::where('user_id', Auth::user()->id)->first();
-        // $buku =
         $data = [
             'rak' => Rak::where('user_id', Auth::user()->id)->get(),
-            'active' => $rak,
-            'buku' => Buku::where('rak_id', $rak->id)->get()
+            'active' => 'All',
+            'buku' => Buku::where('user_id', Auth::user()->id)->get()
         ];
+
         return view('rak.index', $data);
     }
 
@@ -113,9 +112,9 @@ class RakController extends Controller
      * @param  \App\Rak  $user
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Rak $rak)
+    public function destroy($id)
     {
-        $rak->delete();
+        Rak::where('id', $id)->delete();
 
         return redirect()->route('rak.index')->withStatus(__('Rak successfully deleted.'));
     }

@@ -21,8 +21,8 @@ class CreateBukusTable extends Migration
             $table->string('sampul');
             $table->string('penerbit')->nullable();
             $table->integer('tahun_terbit')->nullable();
-            $table->integer('rak_id');
             $table->integer('user_id');
+            $table->integer('rak_id');
             $table->timestamps();
         });
     }

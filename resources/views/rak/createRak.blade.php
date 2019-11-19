@@ -18,7 +18,7 @@
                                 <h3 class="mb-0">{{ __('Add Shelf') }}</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('rak.index') }}" class="btn btn-primary btn-round">{{ __('Back to list') }}</a>
+                                <a href="{{ url()->previous() }}" class="btn btn-primary btn-round">{{ __('Back to list') }}</a>
                             </div>
                         </div>
                     </div>

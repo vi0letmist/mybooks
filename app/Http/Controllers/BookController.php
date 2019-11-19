@@ -122,10 +122,10 @@ class BookController extends Controller
      * @param  \App\Rak  $user
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Rak $rak)
+    public function destroy($id)
     {
-        $rak->delete();
+        Buku::where('id', $id)->delete();
 
-        return redirect()->route('rak.index')->withStatus(__('Rak successfully deleted.'));
+        return redirect()->route('rak.index')->withStatus(__('Book successfully deleted.'));
     }
 }

@@ -5,19 +5,17 @@ namespace App\Http\Controllers;
 use App\PinjamBuku;
 use App\Peminjam;
 use App\Buku;
-use App\Http\Requests\PeminjamanRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Request;
 
 class PeminjamanController extends Controller
 {
 
     public function index()
     {
-        
+
 
         return view('peminjaman.index');
-
     }
 
 
@@ -30,14 +28,14 @@ class PeminjamanController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
+        // dd($request);
         $peminjaman = new PinjamBuku;
 
         $peminjaman->status = '1';
         $peminjaman->tgl_pinjam = $request->tanggalPinjam;
         $peminjaman->tgl_kembali = $request->tanggalKembali;
-        $peminjaman->buku_id = Buku::where('judul', $request->buku)->id;
-        $peminjaman->peminjam_id = Buku::where('nama', $request->nama)->id;
+        $peminjaman->buku_id = $request->buku;
+        $peminjaman->peminjam_id = $request->nama;
 
         $peminjaman->save();
 
@@ -57,8 +55,8 @@ class PeminjamanController extends Controller
         $peminjaman->update(
             $request->merge([
                 'password' => Hash::make($request->get('password'))
-                ])->except([$hasPassword ? '' : 'password'])
-            );
+            ])->except([$hasPassword ? '' : 'password'])
+        );
 
         return redirect()->route('peminjaman.index')->withStatus(__('Peminjaman successfully updated.'));
     }

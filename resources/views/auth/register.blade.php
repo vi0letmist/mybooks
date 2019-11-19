@@ -1,70 +1,57 @@
 @extends('layouts.app', [
     'namePage' => 'Register page',
+    'class' => 'login-page sidebar-mini ',
     'activePage' => 'register',
-    'backgroundImage' => asset('assets') . "/img/bg16.jpg",
+    'backgroundImage' => asset('assets') . "/img/b.jpg",
 ])
-
+<img src="/assets/img/tengah1.svg" id="tengah" alt="tengah">
+<img src="/assets/img/kiri.svg" id="left" alt="left">
+<img src="/assets/img/right.svg" id="right" alt="right">
+<img src="/assets/img/fallstar.svg" id="fall" alt="fall">
+<img src="/assets/img/spark.svg" id="spark1" alt="spark">
+<img src="/assets/img/spark.svg" id="spark2" alt="spark">
+<img src="/assets/img/spark.svg" id="spark3" alt="spark">
+<img src="/assets/img/spark.svg" id="spark4" alt="spark">
+<img src="/assets/img/spark.svg" id="spark5" alt="spark">
+<img src="/assets/img/spark.svg" id="spark6" alt="spark">
+<img src="/assets/img/spark.svg" id="spark7" alt="spark">
+<img src="/assets/img/spark.svg" id="spark8" alt="spark">
+<img src="/assets/img/spark.svg" id="spark9" alt="spark">
+<img src="/assets/img/spark.svg" id="spark10" alt="spark">
+<img src="/assets/img/spark.svg" id="spark11" alt="spark">
+<img src="/assets/img/spark.svg" id="spark12" alt="spark">
+<img src="/assets/img/spark.svg" id="spark13" alt="spark">
 @section('content')
   <div class="content">
     <div class="container">
-      <div class="row">
-        {{-- <div class="col-md-5 ml-auto"> --}}
-          {{-- <div class="info-area info-horizontal mt-5">
-            <div class="icon icon-primary">
-              <i class="now-ui-icons media-2_sound-wave"></i>
-            </div> --}}
-            {{-- <div class="description">
-              <h5 class="info-title">{{ __('Marketing') }}</h5>
-              <p class="description">
-                {{ __("We've created the marketing campaign of the website. It was a very interesting collaboration.") }}
-              </p>
-            </div> --}}
-          {{-- </div> --}}
-          {{-- <div class="info-area info-horizontal">
-            <div class="icon icon-primary">
-              <i class="now-ui-icons media-1_button-pause"></i>
-            </div>
-            <div class="description">
-              <h5 class="info-title">{{ __('Fully Coded in HTML5') }}</h5>
-              <p class="description">
-                {{ __("We've developed the website with HTML5 and CSS3. The client has access to the code using GitHub.") }}
-              </p>
-            </div>
-          </div>
-          <div class="info-area info-horizontal">
-            <div class="icon icon-info">
-              <i class="now-ui-icons users_single-02"></i>
-            </div>
-            <div class="description">
-              <h5 class="info-title">{{ __('Built Audience') }}</h5>
-              <p class="description">
-                {{ __('There is also a Fully Customizable CMS Admin Dashboard for this product.') }}
-              </p>
-            </div>
-          </div> --}}
-        {{-- </div> --}}
-        <div class="col-md-4 mx-auto">
-          <div class="card card-signup text-center">
-            <div class="card-header ">
-              <h4 class="card-title">{{ __('Register') }}</h4>
-              <div class="social">
-                <button class="btn btn-icon btn-round btn-twitter">
-                  <i class="fab fa-twitter"></i>
-                </button>
-                <button class="btn btn-icon btn-round btn-dribbble">
-                  <i class="fab fa-dribbble"></i>
-                </button>
-                <button class="btn btn-icon btn-round btn-facebook">
-                  <i class="fab fa-facebook-f"></i>
-                </button>
-                <h5 class="card-description">  {{ __('or be classical') }}</h5>
+      <div class="col-md-12 ml-auto mr-auto">
+          <div class="header bg-gradient-primary py-10 py-lg-2 pt-lg-12">
+            <div class="container">
+              <div class="header-body text-center mb-7">
+                <div class="row justify-content-center">
+                  <div class="col-lg-12 col-md-9">
+                    <p class="text-lead text-light mt-3 mb-0">
+                      @include('alerts.migrations_check')
+                    </p>
+                  </div>
+                  <div class="col-lg-5 col-md-6">
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="card-body ">
+          </div>
+        </div>
+        <div class="col-md-4 ml-auto mr-auto">
               <form method="POST" action="{{ route('register') }}">
                 @csrf
-                <!--Begin input name -->
-                <div class="input-group {{ $errors->has('name') ? ' has-danger' : '' }}">
+              <div class="card card-login card-plain">  
+                <div class="card-header">
+                  <div class="logo-container">
+                      <img src="{{ asset('assets/img/now-logo.png') }}" alt="" style="width:100px;max-width:150%;margin-left:-1em;">
+                  </div>
+                  </div>
+                <div class="card-body ">            
+                <div class="input-group no-border form-control-lg {{ $errors->has('name') ? ' has-danger' : '' }}">
                   <div class="input-group-prepend">
                     <div class="input-group-text">
                       <i class="now-ui-icons users_circle-08"></i>
@@ -78,7 +65,7 @@
                   @endif
                 </div>
                 <!--Begin input email -->
-                <div class="input-group {{ $errors->has('email') ? ' has-danger' : '' }}">
+                <div class="input-group no-border form-control-lg {{ $errors->has('email') ? ' has-danger' : '' }}">
                   <div class="input-group-prepend">
                     <div class="input-group-text">
                       <i class="now-ui-icons ui-1_email-85"></i>
@@ -94,7 +81,7 @@
                 <!--Begin input user type-->
                 
                 <!--Begin input password -->
-                <div class="input-group {{ $errors->has('password') ? ' has-danger' : '' }}">
+                <div class="input-group no-border form-control-lg {{ $errors->has('password') ? ' has-danger' : '' }}">
                   <div class="input-group-prepend">
                     <div class="input-group-text">
                       <i class="now-ui-icons objects_key-25"></i>
@@ -108,7 +95,7 @@
                   @endif
                 </div>
                 <!--Begin input confirm password -->
-                <div class="input-group">
+                <div class="input-group no-border form-control-lg">
                   <div class="input-group-prepend">
                     <div class="input-group-text">
                       <i class="now-ui-icons objects_key-25"></i></i>
@@ -116,22 +103,17 @@
                   </div>
                   <input class="form-control" placeholder="{{ __('Confirm Password') }}" type="password" name="password_confirmation" required>
                 </div>
-                <div class="form-check text-left">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox">
-                    <span class="form-check-sign"></span>
-                    {{ __('I agree to the') }}
-                    <a href="#something">{{ __('terms and conditions') }}</a>.
-                  </label>
-                </div>
                 <div class="card-footer ">
-                  <button type="submit" class="btn btn-primary btn-round btn-lg">{{__('Get Started')}}</button>
+                  <button type="submit" class="btn btn-primary btn-round btn-lg btn-block mb-3">{{__('Register')}}</button>
+                  <div class="pull-left">
+                    Already have an account ? 
+                    <h6>
+                      <a href="{{ route('login') }}" class="link footer-link">{{ __('Login') }}</a>
+                    </h6>
+                  </div>
                 </div>
               </form>
-            </div>
-          </div>
-        </div>
-      </div>
+        </div>      
     </div>
   </div>
 @endsection

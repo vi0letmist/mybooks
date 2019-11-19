@@ -28,50 +28,55 @@
                             <h6 class="heading-small text-muted mb-4">{{ __('Book information') }}</h6>
                             <div class="pl-lg-4">
                                 <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-title">{{ __('Nama Buku') }}</label>
+                                    <label class="form-control-label" for="input-title">{{ __('Nama Buku *') }}</label>
                                     <input type="text" name="title" id="input-title" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ __('Nama Buku') }}" value="{{ old('title') }}" required autofocus>
 
                                     @include('alerts.feedback', ['field' => 'title'])
                                 </div>
                                 <div class="form-group{{ $errors->has('author') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-author">{{ __('Nama Pengarang') }}</label>
-                                    <input type="text" name="author" id="input-author" class="form-control{{ $errors->has('author') ? ' is-invalid' : '' }}" placeholder="{{ __('Nama Pengarang') }}" value="{{ old('author') }}" required>
+                                    <input type="text" name="author" id="input-author" class="form-control{{ $errors->has('author') ? ' is-invalid' : '' }}" placeholder="{{ __('Nama Pengarang') }}" value="{{ old('author') }}">
 
                                     @include('alerts.feedback', ['field' => 'author'])
                                 </div>
                                 <div class="form-group{{ $errors->has('tahunTerbit') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-tahunTerbit">{{ __('Tahun Terbit') }}</label>
-                                    <input type="text" name="tahunTerbit" id="input-tahunTerbit" class="form-control{{ $errors->has('tahunTerbit') ? ' is-invalid' : '' }}" placeholder="{{ __('Tahun Terbit') }}" value="{{ old('tahunTerbit') }}" required>
+                                    <input type="number" min="1700" max="2020" name="tahunTerbit" id="datepicker1" class="form-control{{ $errors->has('tahunTerbit') ? ' is-invalid' : '' }}" placeholder="{{ __('Tahun Terbit') }}" value="2019">
 
                                     @include('alerts.feedback', ['field' => 'tahunTerbit'])
                                 </div>
                                 <div class="form-group{{ $errors->has('deskripsi') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-deskripsi">{{ __('Deskripsi') }}</label>
-                                    <input type="text" name="deskripsi" id="input-deskripsi" class="form-control{{ $errors->has('deskripsi') ? ' is-invalid' : '' }}" placeholder="{{ __('Deskripsi') }}" value="{{ old('deskripsi') }}" required>
+                                    <input type="text" name="deskripsi" id="input-deskripsi" class="form-control{{ $errors->has('deskripsi') ? ' is-invalid' : '' }}" placeholder="{{ __('Deskripsi') }}" value="{{ old('deskripsi') }}">
 
                                     @include('alerts.feedback', ['field' => 'deskripsi'])
                                 </div>
 
                                 <div class="form-group{{ $errors->has('penerbit') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-penerbit">{{ __('Penerbit') }}</label>
-                                    <input type="text" name="deskripsi" id="input-penerbit" class="form-control{{ $errors->has('penerbit') ? ' is-invalid' : '' }}" placeholder="{{ __('Penerbit') }}" value="{{ old('penerbit') }}" required>
+                                    <input type="text" name="penerbit" id="input-penerbit" class="form-control{{ $errors->has('penerbit') ? ' is-invalid' : '' }}" placeholder="{{ __('Penerbit') }}" value="{{ old('penerbit') }}">
 
                                     @include('alerts.feedback', ['field' => 'penerbit'])
                                 </div>
-
-                                <div class="form-group{{ $errors->has('rak') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-penerbit">{{ __('Rak') }}</label><br>
-                                        <select name="rak" class="form-control{{ $errors->has('rak') ? ' has-danger' : '' }}">
-                                        @foreach ($rak as $x)
-                                            <option class="form-control" value="{{$x->id}}">{{$x->nama}}</option>
-                                        @endforeach
-                                        </select>
-                                        @include('alerts.feedback', ['field' => 'rak'])
-                                    </input>
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="form-group{{ $errors->has('rak') ? ' has-danger' : '' }}">
+                                            <label class="form-control-label" for="input-penerbit">{{ __('Rak') }}</label><br>
+                                                <select name="rak" class="form-control{{ $errors->has('rak') ? ' has-danger' : '' }}">
+                                                @foreach ($rak as $x)
+                                                    <option value="{{$x->id}}">{{$x->nama}}</option>
+                                                @endforeach
+                                                </select>
+                                                @include('alerts.feedback', ['field' => 'rak'])
+                                            </input>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <a href="{{ route('rak.create') }}" class="btn btn-primary btn-round" style="margin-top:25px">{{ __('Add Shelf') }}</a>
+                                    </div>
                                 </div>
-
                                 <label>Book cover</label><br>
-                                <input type="file" class="btn btn-primary btn-sm" name="gambar" value="{{old('gambar')}}">
+                                <input type="file" class="form-control btn btn-primary btn-sm" name="gambar" value="{{old('gambar')}}">
 
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success mt-4">{{ __('Save') }}</button>

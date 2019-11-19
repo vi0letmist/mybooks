@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Buku;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $data = [
+            'buku' => Buku::where('user_id', Auth::user()->id)->count()
+        ];
+
+        return view('home', $data);
     }
 }
