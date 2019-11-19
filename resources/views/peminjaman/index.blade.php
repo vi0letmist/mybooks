@@ -13,8 +13,8 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-              <a class="btn btn-primary btn-round text-white pull-right" href="{{ route('peminjaman.create') }}">{{ __('Add Peminjaman') }}</a>
-            <h4 class="card-title">{{ __('Peminjaman') }}</h4>
+              <a class="btn btn-primary btn-round text-white pull-right" href="{{ route('peminjaman.create') }}">{{ __('Add Borrowing') }}</a>
+            <h4 class="card-title">{{ __('Borrowing') }}</h4>
             <div class="col-12 mt-2">
               @include('alerts.success')
               @include('alerts.errors')
@@ -28,11 +28,11 @@
             <thead>
                 <tr>
                   <th>No</th>
-                  <th>Nama Peminjam</th>
-                  <th>tglPinjam</th>
-                  <th>tglKembali</th>
-                  <th>Nama Buku</th>
-                  <th>no Telefon</th>
+                  <th>Name</th>
+                  <th>Borrowed Date</th>
+                  <th>Date Back</th>
+                  <th>Book Name</th>
+                  <th>Phone Number</th>
                   <th class="disabled-sorting text-right">Actions</th>
                 </tr>
               </thead>
@@ -101,7 +101,7 @@
 @push('js')
   <script>
     $(document).ready(function() {
-      $(".delete-button").click(function(){ 
+      $(".delete-button").click(function(){
         var clickedButton = $( this );
         Swal.fire({
         title: 'Are you sure?',

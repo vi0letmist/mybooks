@@ -14,8 +14,8 @@
       <div class="col-lg-4">
         <div class="card card-chart">
           <div class="card-header">
-            <h5 class="card-category">Buku</h5>
-            <h4 class="card-title">Jumlah Buku</h4>
+            <h5 class="card-category">Book</h5>
+            <h4 class="card-title">Books</h4>
             <div class="dropdown">
               <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
                 <i class="now-ui-icons loader_gear"></i>
@@ -44,8 +44,8 @@
       <div class="col-lg-4 col-md-6">
         <div class="card card-chart">
           <div class="card-header">
-            <h5 class="card-category">Peminjam</h5>
-            <h4 class="card-title">Jumlah Peminjam</h4>
+            <h5 class="card-category">Borrower</h5>
+            <h4 class="card-title">Borrowers</h4>
             <div class="dropdown">
               <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
                 <i class="now-ui-icons loader_gear"></i>
@@ -59,11 +59,11 @@
             </div>
           </div>
           <div class="card-body">
-            <h1>12</h1>  
+            <h1>12</h1>
             <div class="chart-area">
               <canvas id="lineChartExampleWithNumbersAndGrid"></canvas>
             </div>
-            
+
           </div>
           <div class="card-footer">
             <div class="stats">
@@ -76,16 +76,16 @@
         <div class="card">
           <div class="card-header">
             <h5 class="card-category">All Persons List</h5>
-            <h4 class="card-title"> borrow list</h4>
+            <h4 class="card-title"> Borrow list</h4>
           </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table">
                 <thead class=" text-primary">
-                  <th>Nama</th>
-                  <th>buku yang dipinjam</th>
-                  <th>tgl pinjam</th>
-                  <th class="text-right">tgl kembali</th>
+                  <th>Name</th>
+                  <th>Book</th>
+                  <th>Date Borrowed</th>
+                  <th class="text-right">Date back</th>
                 </thead>
                 <tbody>
                   <tr>
@@ -126,7 +126,7 @@
       </div>
     </div>
     <div class="row">
-      
+
     </div>
   </div>
 @endsection
