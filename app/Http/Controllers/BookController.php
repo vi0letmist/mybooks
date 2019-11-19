@@ -79,7 +79,7 @@ class BookController extends Controller
         $buku->save();
 
         if ($request->gambar != null) {
-            $target = base_path('storage\image');
+            $target = base_path('public/images');
             $request->file('gambar')->move($target, $cover);
         }
 
