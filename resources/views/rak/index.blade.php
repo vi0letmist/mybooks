@@ -77,7 +77,7 @@
                     </div>
                 </div>
                 <div class="card-body" style="text-align:center;">
-                    <img src="images/{{$b->sampul}}">
+                    <img src="images/{{$b->sampul}}" style="height:330px;">
                     <h5>{{$b->judul}}</h5>
                     <p>{{$b->penulis}}</p>
                 </div>
