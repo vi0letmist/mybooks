@@ -28,7 +28,7 @@
                             @csrf
                             @method('put')
                             <div class="pl-lg-4">
-                            <div class="form-group">
+                                <div class="form-group">
                                     <label>{{__(" Title")}}</label>
                                     <input type="text" name="title" class="form-control" value="{{ old('name', auth()->book()->title) }}">
                                     @include('alerts.feedback', ['field' => 'title'])
