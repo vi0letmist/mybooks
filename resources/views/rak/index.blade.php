@@ -27,6 +27,12 @@
 </div>
 <div class="content">
     <div class="row">
+    <div class="col-md-12">
+            
+            @include('alerts.success')
+                    @include('alerts.errors')
+           
+        </div>
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header" style="margin-bottom:1em;">
@@ -43,14 +49,14 @@
                     </div>
                     <a class="btn btn-primary btn-round text-white pull-right" href="{{ route('book.create') }}">{{ __('Add Book') }}</a>
                     <div class="col-12 mt-2">
-                    @include('alerts.success')
-                    @include('alerts.errors')
+                    
                     </div>
                     <div class="card-body" style="margin-top:2em;">
                     </div>
                 </div>
             </div>
         </div>
+        
         @foreach ($buku as $b)
         <div class="col-md-3">
             <div class="card">

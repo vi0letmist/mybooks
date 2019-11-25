@@ -55,6 +55,13 @@ class BookController extends Controller
         return view('rak.create', $data);
     }
 
+    public function show($id)
+    {
+        
+        $rak = Buku::find($id);
+        return view('rak.show', compact('rak'));
+    }
+
     /**
      * Store a newly created user in storage
      *
@@ -92,7 +99,7 @@ class BookController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\View\View
      */
-    public function edit(Rak $rak)
+    public function edit($id)
     {
         return view('rak.edit', compact('rak'));
     }

@@ -27,21 +27,21 @@
                             @csrf
                             <h6 class="heading-small text-muted mb-4">{{ __('informasi Peminjaman') }}</h6>
                             <div class="pl-lg-4">
-                                <div class="form-group{{ $errors->has('nama') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-name">{{ __('Nama Peminjam') }}</label>
-                                    <div class="row">
+                                <div class="row align-items-center">
                                     <div class="col-8">
-                                        <select name="nama" class="form-control{{ $errors->has('nama') ? ' has-danger' : '' }}">
-                                            @foreach ($peminjam as $p)
-                                                <option class="form-control" value="{{$p->id}}">{{$p->nama}}</option>
-                                            @endforeach
-                                        </select>
+                                    <div class="form-group{{ $errors->has('nama') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-name">{{ __('Nama Peminjam') }}</label>
+                                        
+                                            <select name="nama" class="form-control{{ $errors->has('nama') ? ' has-danger' : '' }}">
+                                                @foreach ($peminjam as $p)
+                                                    <option class="form-control" value="{{$p->id}}">{{$p->nama}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        @include('alerts.feedback', ['field' => 'nama'])
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-4" style="margin-top:1em;">
                                     <a href="{{ route('peminjam') }}" class="btn btn-primary btn-round">{{ __('Tambah Peminjam') }}</a>
-                                    </div>
-                                    @include('alerts.feedback', ['field' => 'nama'])
-
                                     </div>
                                 </div>
                                 <div class="form-group{{ $errors->has('buku') ? ' has-danger' : '' }}">
