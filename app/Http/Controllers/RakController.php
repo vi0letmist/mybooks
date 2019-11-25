@@ -82,7 +82,7 @@ class RakController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\View\View
      */
-    public function edit(Rak $rak)
+    public function edit($id)
     {
         return view('rak.edit', compact('rak'));
     }
