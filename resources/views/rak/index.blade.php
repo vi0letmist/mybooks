@@ -14,7 +14,7 @@
             <h2 class="title">{{$active->nama}}</h2>
         @endif
         <div class="form-inline" style="justify-content:center">
-        <a class="btn btn-primary btn-round text-white" href="{{ route('rak.create') }}">{{ __('Add Shelf') }}</a>
+
         @if($active != 'All' && $active != 'Result')
             <form action="{{route('rak.destroy', $active->id)}}" method="POST">
                 {{ csrf_field() }}
@@ -47,6 +47,7 @@
                         @endforeach
                         </div>
                     </div>
+                    <a class="btn btn-primary btn-round text-white pull-left" href="{{ route('rak.create') }}">{{ __('Add Shelf') }}</a>
                     <a class="btn btn-primary btn-round text-white pull-right" href="{{ route('book.create') }}">{{ __('Add Book') }}</a>
                     <div class="col-12 mt-2">
 
