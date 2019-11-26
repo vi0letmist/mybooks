@@ -27,7 +27,8 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <strong>Sampul: </strong>
+                                        <strong>Sampul: </strong><br>
+                                        <img src="{{URL::asset('/images/' . $buku->sampul)}}" style="height:330px;">
                                         <a></a>
                                     </div>
                                 </div>
@@ -35,37 +36,37 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <strong>Nama Buku : </strong>
+                                                <strong>Nama Buku : {{$buku->judul}}</strong>
                                                 <a></a>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <strong>Nama Pengarang : </strong>
+                                                <strong>Nama Pengarang : {{$buku->penulis}}</strong>
                                                 <a></a>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <strong>Tahun Terbit : </strong>
+                                                <strong>Tahun Terbit : {{$buku->tahun_terbit}}</strong>
                                                 <a></a>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <strong>Deskripsi : </strong>
+                                                <strong>Deskripsi : {{$buku->deskripsi}}</strong>
                                                 <a></a>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <strong>Penerbit : </strong>
+                                                <strong>Penerbit : {{$buku->penerbit}}</strong>
                                                 <a></a>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <strong>Rak : </strong>
+                                                <strong>Rak : {{$rak}}</strong>
                                                 <a></a>
                                             </div>
                                         </div>

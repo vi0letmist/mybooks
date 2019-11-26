@@ -23,29 +23,38 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{ route('book.update', $book) }}" autocomplete="off"
-                            enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('book.update', $book->id) }}" autocomplete="off" enctype="multipart/form-data">
                             @csrf
                             @method('put')
                             <div class="pl-lg-4">
                                 <div class="form-group">
                                     <label>{{__(" Title")}}</label>
-                                    <input type="text" name="title" class="form-control" value="{{ old('name', auth()->book()->title) }}">
+                                    <input type="text" name="title" class="form-control" value="{{ old($book->judul) }}">
                                     @include('alerts.feedback', ['field' => 'title'])
                                 </div>
                                 <div class="form-group">
                                     <label>{{__(" Author")}}</label>
-                                    <input type="text" name="author" class="form-control" value="{{ old('name', auth()->book()->author) }}">
+                                    <input type="text" name="author" class="form-control" value="{{ old('name', $book->penulis) }}">
                                     @include('alerts.feedback', ['field' => 'author'])
                                 </div>
                                 <div class="form-group">
-                                    <label>{{__(" Tahun Terbit")}}</label>
-                                    <input type="text" name="tahunTerbit" class="form-control" value="{{ old('name', auth()->book()->tahunTerbit) }}">
+                                    <label>{{__(" Publication Year")}}</label>
+                                    <input type="text" name="tahunTerbit" class="form-control" value="{{ old('name', $book->tahun_terbit) }}">
                                     @include('alerts.feedback', ['field' => 'tahunTerbit'])
                                 </div>
                                 <div class="form-group">
-                                    <label>{{__(" Deskripsi")}}</label>
-                                    <input type="text" name="deskripsi" class="form-control" value="{{ old('name', auth()->book()->deskripsi) }}">
+                                    <label>{{__(" Description")}}</label>
+                                    <input type="text" name="deskripsi" class="form-control" value="{{ old('name', $book->deskripsi) }}">
+                                    @include('alerts.feedback', ['field' => 'deskripsi'])
+                                </div>
+                                <div class="form-group">
+                                    <label>{{__(" Publisher")}}</label>
+                                    <input type="text" name="deskripsi" class="form-control" value="{{ old('name', $book->deskripsi) }}">
+                                    @include('alerts.feedback', ['field' => 'deskripsi'])
+                                </div>
+                                <div class="form-group">
+                                    <label>{{__(" Shelf")}}</label>
+                                    <input type="text" name="deskripsi" class="form-control" value="{{ old('name', $book->deskripsi) }}">
                                     @include('alerts.feedback', ['field' => 'deskripsi'])
                                 </div>
                                 <div class="text-center">

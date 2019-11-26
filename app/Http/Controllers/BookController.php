@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Rak;
 use App\Buku;
+use App\PinjamBuku;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -73,8 +74,15 @@ class BookController extends Controller
     public function show($id)
     {
 
-        $rak = Buku::find($id);
-        return view('rak.show', compact('rak'));
+        $buku = Buku::find($id);
+        $rak = Rak::where('id', $buku->rak_id)->first();
+        if($rak == null) {
+            $rak= '-';
+        } else {
+            $rak = $rak->nama;
+        }
+        // dd($buku);
+        return view('rak.show', compact('rak', 'buku'));
     }
 
     /**
@@ -118,7 +126,10 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        return view('rak.edit', compact('rak'));
+        $data = [
+            'book' => Buku::where('id', $id)->first()
+        ];
+        return view('rak.edit', $data);
     }
 
     /**
@@ -148,6 +159,7 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
+        PinjamBuku::where('buku_id', $id)->delete();
         Buku::where('id', $id)->delete();
 
         return redirect()->route('rak.index')->withStatus(__('Book successfully deleted.'));

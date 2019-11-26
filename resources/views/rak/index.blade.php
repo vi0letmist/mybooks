@@ -66,12 +66,12 @@
                             <i class="now-ui-icons loader_gear"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="#">Lihat</a>
-                            <a class="dropdown-item" href="#">Edit</a>
+                            <a class="dropdown-item" href="{{route('book.show', $b->id)}}">Lihat</a>
+                            <a class="dropdown-item" href="{{route('book.edit', $b->id)}}">Edit</a>
                             <form action="{{route('book.destroy', $b->id)}}" method="POST">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
-                                <button style="background:white;color:black" class="btn" data-method="delete" class="jquery-postback">{{ __('Remove Shelf') }}</button>
+                                <button style="background:white;color:black" class="btn" data-method="delete" class="jquery-postback">{{ __('Remove Book') }}</button>
                             </form>
                         </div>
                     </div>
