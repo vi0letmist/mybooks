@@ -46,7 +46,7 @@
                         <td>{{$p->Buku->judul}}</td>
                         <td>{{$p->Peminjam->no_hp}}</td>
                         <td class="text-right">
-                              <a type="button" href="#" rel="tooltip" class="btn btn-success btn-icon btn-sm " data-original-title="" title="">
+                              <a type="button" href="{{route('peminjaman.edit', $p->id)}}" rel="tooltip" class="btn btn-success btn-icon btn-sm " data-original-title="" title="">
                                 <i class="now-ui-icons ui-2_settings-90"></i>
                               </a>
                             <form action="{{route('peminjaman.destroy', $p->id)}}" method="post" style="display:inline-block;" class ="delete-form">

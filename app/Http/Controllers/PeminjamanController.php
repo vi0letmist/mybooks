@@ -44,13 +44,14 @@ class PeminjamanController extends Controller
         return redirect()->route('peminjaman.index')->withStatus(__('Peminjaman successfully created.'));
     }
 
-    public function edit(Peminjaman $peminjaman)
+    public function edit($id)
     {
+        $peminjaman = PinjamBuku::where('id', $id)->first();
         return view('peminjaman.edit', compact('peminjaman'));
     }
 
 
-    public function update(PeminjamanRequest $request, Peminjaman  $peminjaman)
+    public function update(Request $request)
     {
         $hasPassword = $request->get('password');
         $peminjaman->update(
