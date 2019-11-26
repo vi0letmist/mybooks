@@ -22,6 +22,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('user', 'UserController', ['except' => ['show']]);
     Route::resource('rak', 'RakController', ['except' => ['show']]);
     Route::resource('book', 'BookController', ['except' => ['show']]);
+    Route::get('book/search', 'BookController@search');
     Route::get('rak/{id}', 'RakController@rak');
     Route::resource('peminjaman', 'PeminjamanController', ['except' => ['show']]);
     Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);

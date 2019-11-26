@@ -8,14 +8,14 @@
 @section('content')
 <div class="panel-header">
     <div class="header text-center">
-        @if($active == 'All')
+        @if($active == 'All' || $active == 'Result')
             <h2 class="title">{{$active}}</h2>
         @else
             <h2 class="title">{{$active->nama}}</h2>
         @endif
         <div class="form-inline" style="justify-content:center">
         <a class="btn btn-primary btn-round text-white" href="{{ route('rak.create') }}">{{ __('Add Shelf') }}</a>
-        @if($active != 'All')
+        @if($active != 'All' && $active != 'Result')
             <form action="{{route('rak.destroy', $active->id)}}" method="POST">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
@@ -28,10 +28,10 @@
 <div class="content">
     <div class="row">
     <div class="col-md-12">
-            
+
             @include('alerts.success')
                     @include('alerts.errors')
-           
+
         </div>
         <div class="col-md-12">
             <div class="card">
@@ -49,14 +49,14 @@
                     </div>
                     <a class="btn btn-primary btn-round text-white pull-right" href="{{ route('book.create') }}">{{ __('Add Book') }}</a>
                     <div class="col-12 mt-2">
-                    
+
                     </div>
                     <div class="card-body" style="margin-top:2em;">
                     </div>
                 </div>
             </div>
         </div>
-        
+
         @foreach ($buku as $b)
         <div class="col-md-3">
             <div class="card">
@@ -77,7 +77,7 @@
                     </div>
                 </div>
                 <div class="card-body" style="text-align:center;">
-                    <img src="images/{{$b->sampul}}" style="height:330px;">
+                    <img src="{{URL::asset('/images/' . $b->sampul)}}" style="height:330px;">
                     <h5>{{$b->judul}}</h5>
                     <p>{{$b->penulis}}</p>
                 </div>

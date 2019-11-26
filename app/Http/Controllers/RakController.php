@@ -29,6 +29,7 @@ class RakController extends Controller
 
     public function rak($id)
     {
+        $data = Buku::where('judul', 'LIKE', '%'. 'tes' .'%');
         $rak = Rak::where('id', $id)->first();
         if ($rak == null) {
             $rak = Rak::where('user_id', Auth::user()->id)->first();
