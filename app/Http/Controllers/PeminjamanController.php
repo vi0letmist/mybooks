@@ -6,6 +6,7 @@ use App\PinjamBuku;
 use App\Peminjam;
 use App\Buku;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class PeminjamanController extends Controller
@@ -13,7 +14,8 @@ class PeminjamanController extends Controller
 
     public function index()
     {
-        $peminjaman = PinjamBuku::all();
+        $buku = Buku::where('user_id', Auth::user()->id)->get();
+        $peminjaman = PinjamBuku::get();
         $i = 1;
 
         return view('peminjaman.index', compact('peminjaman', 'i'));

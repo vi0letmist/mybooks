@@ -28,6 +28,21 @@ class BookController extends Controller
         return view('rak.index', $data);
     }
 
+    public function search(Request $req)
+    {
+        $search = $req->search;
+        // dd($buku);
+        $data = [
+            'rak' => Rak::where('user_id', Auth::user()->id)->get(),
+            'active' => 'Result',
+            'buku' => Buku::where('judul', 'LIKE', '%'.$search.'%')->get()
+        ];
+
+        // dd($data);
+
+        return view('rak.index', $data);
+    }
+
     public function rak($id)
     {
         $rak = Rak::where('id', $id)->first();
@@ -57,7 +72,7 @@ class BookController extends Controller
 
     public function show($id)
     {
-        
+
         $rak = Buku::find($id);
         return view('rak.show', compact('rak'));
     }
@@ -78,6 +93,8 @@ class BookController extends Controller
         if ($request->gambar != null) {
             $cover = Str::random(30) . Auth::user()->id . '.' . $request->file('gambar')->getClientOriginalExtension();
             $buku->sampul = $cover;
+        } else {
+            $buku->sampul = 'default.jpg';
         }
         $buku->penerbit = $request->penerbit;
         $buku->tahun_terbit = $request->tahunTerbit;

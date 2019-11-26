@@ -17,9 +17,9 @@
       <span class="navbar-toggler-bar navbar-kebab"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-      <form>
+      <form action="/book/search" method="GET" id="search-form">
         <div class="input-group no-border">
-          <input type="text" value="" class="form-control" placeholder="Search...">
+          <input type="text" id="query" value="" class="form-control" placeholder="Search..." name="search">
           <div class="input-group-append">
             <div class="input-group-text">
               <i class="now-ui-icons ui-1_zoom-bold"></i>
@@ -70,4 +70,11 @@
     </div>
   </div>
 </nav>
+<script>
+$(document).ready(function() {
+   if ($('#query').val() !== '') {
+      $('#search-form').submit();
+   }
+});
+</script>
   <!-- End Navbar -->
