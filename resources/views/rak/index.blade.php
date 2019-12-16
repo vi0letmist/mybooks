@@ -58,7 +58,7 @@
             </div>
         </div>
 
-        @foreach ($buku as $b)
+        <!-- @foreach ($buku as $b)
         <div class="col-md-3">
             <div class="card">
                 <div class="card-header" style="text-align:right;margin-top:-1em;margin-bottom:-1em;">
@@ -67,12 +67,12 @@
                             <i class="now-ui-icons loader_gear"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="{{route('book.show', $b->id)}}">Lihat</a>
-                            <a class="dropdown-item" href="{{route('book.edit', $b->id)}}">Edit</a>
+                            <a class="dropdown-item" style="font-family:timess;" href="{{route('book.show', $b->id)}}">Lihat</a>
+                            <a class="dropdown-item" style="font-family:timess;" href="{{route('book.edit', $b->id)}}">Edit</a>
                             <form action="{{route('book.destroy', $b->id)}}" method="POST">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
-                                <button style="background:white;color:black" class="btn" data-method="delete" class="jquery-postback">{{ __('Remove Book') }}</button>
+                                <button style="background:white;color:black;font-family:timess;"  class="btn" data-method="delete" class="jquery-postback">{{ __('Remove Book') }}</button>
                             </form>
                         </div>
                     </div>
@@ -81,6 +81,30 @@
                     <img src="{{URL::asset('/images/' . $b->sampul)}}" style="height:330px;">
                     <h5>{{$b->judul}}</h5>
                     <p>{{$b->penulis}}</p>
+                </div>
+            </div>
+        </div>
+        @endforeach -->
+        @foreach ($buku as $b)
+        <div class="col-md-3">
+            <div class="card">
+            <div class="dropdown" style="text-align:right;margin-bottom:-4.2em;">
+                        <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown" style="color:#fff;">
+                            <i class="now-ui-icons loader_gear" style="color:#fff;"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" style="font-family:timess;" href="{{route('book.edit', $b->id)}}">Edit</a>
+                            <form action="{{route('book.destroy', $b->id)}}" method="POST">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                <button style="background:white;color:black;font-family:timess;"  class="btn" data-method="delete" class="jquery-postback">{{ __('Remove Book') }}</button>
+                            </form>
+                        </div>
+                    </div>
+                    <img src="{{URL::asset('/images/' . $b->sampul)}}" class="card-img-top" style="height:330px;">
+                <div class="card-body">
+                    <a href="{{route('book.show', $b->id)}}">{{$b->judul}}</a><br/>
+                    <a>by </a><a href="#">{{$b->penulis}}</a>
                 </div>
             </div>
         </div>
