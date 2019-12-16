@@ -6079,3 +6079,7 @@ Created using IcoMoon - icomoon.io
     left:22%;
     width: 1.4%;
 }
+@font-face{
+    font-family:geosanslight;
+    src:url("../fonts/GeosansLight.ttf");
+  }
