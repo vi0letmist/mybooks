@@ -101,7 +101,7 @@
                             </form>
                         </div>
                     </div>
-                    <img src="{{URL::asset('/images/' . $b->sampul)}}" class="card-img-top" style="height:330px;" alt="{{$b->judul}} by {{$b->penulis}}">
+                    <img src="{{URL::asset('/images/' . $b->sampul)}}" class="card-img-top" style="height:330px;" alt="{{$b->judul}} by {{$b->penulis}}" title="{{$b->judul}} by {{$b->penulis}}">
                 <div class="card-body">
                     <a href="{{route('book.show', $b->id)}}">{{$b->judul}}</a><br/>
                     <a>by </a><a href="#">{{$b->penulis}}</a>
