@@ -93,15 +93,15 @@
                             <i class="now-ui-icons loader_gear" style="color:#fff;"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" style="font-family:timess;" href="{{route('book.edit', $b->id)}}">Edit</a>
+                            <a class="dropdown-item" href="{{route('book.edit', $b->id)}}">Edit</a>
                             <form action="{{route('book.destroy', $b->id)}}" method="POST">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
-                                <button style="background:white;color:black;font-family:timess;"  class="btn" data-method="delete" class="jquery-postback">{{ __('Remove Book') }}</button>
+                                <button style="background:white;color:black;"  class="btn" data-method="delete" class="jquery-postback">{{ __('Remove Book') }}</button>
                             </form>
                         </div>
                     </div>
-                    <img src="{{URL::asset('/images/' . $b->sampul)}}" class="card-img-top" style="height:330px;">
+                    <img src="{{URL::asset('/images/' . $b->sampul)}}" class="card-img-top" style="height:330px;" alt="{{$b->judul}} by {{$b->penulis}}">
                 <div class="card-body">
                     <a href="{{route('book.show', $b->id)}}">{{$b->judul}}</a><br/>
                     <a>by </a><a href="#">{{$b->penulis}}</a>
